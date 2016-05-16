@@ -85,3 +85,20 @@ create or replace trigger record
 		end case;
 	end;
 	/							
+
+-- 
+
+create of replace function
+	nothing(no number)
+	return number as tot number;
+	begin
+		tot := no / 2;
+		return tot;
+	end;
+	/
+
+create or replace procedure somethingelse is
+	begin
+		dbms_output.put_line('I wanna die in an epic way.');
+	end;
+	/		

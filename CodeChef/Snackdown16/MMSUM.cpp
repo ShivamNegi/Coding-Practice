@@ -20,6 +20,15 @@ long int maxSubArraySum(vector<long int> a)
    }
    return max_so_far;
 }
+
+void display(vector<long int> v)
+{
+    for(int i = 0; i < v.size(); i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+}
  
 int main()
 {
@@ -66,7 +75,8 @@ int main()
             {
                 vector<long int>temp;
                 temp = a;
-                temp.erase(temp.begin() + index[i], temp.begin() + index[i] + 1);
+                temp.erase(temp.begin() + index[i]);
+                display(temp);
                 long int sum = maxSubArraySum(temp);
                 if(sum > max_sum)
                     max_sum = sum;

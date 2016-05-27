@@ -13,9 +13,13 @@ int main()
   cin>>no;
   
   int i, j;
-  i = 0;
+  i = j = 0;
   bool flag = false;
-  for( i; i <= no / 3; i++)
+
+  //the first loop keeps count of the 5's
+  //we start counting the 5's as their number is according
+  //to the descending order of the keys
+  for( i = 0; i <= no / 3; i++)
   	{
   	for( j = 0; j <= no / 5; j++)
   		{
@@ -25,7 +29,8 @@ int main()
   			break;
   			}
   		}
-  		
+      if(flag)	
+        break;
   	}
   
   string out = "";

@@ -32,19 +32,19 @@ void display(vector<long int> v)
  
 int main()
 {
-    long int t;
+    int t;
     cin>>t;
 
     while(t--)
     {
-        long int n;
+        unsigned int n;
         cin>>n;
 
         vector<long int> a, index;
         
         // inputting the numbers in a and creating another vector of the
         // indices of negative value numbers
-        for(long int i = 0; i < n; i++)
+        for(unsigned int i = 0; i < n; i++)
         {
             long int no;
             cin>>no;
@@ -53,6 +53,7 @@ int main()
                 index.push_back(i);
         }
 
+        //working perfectly till here
         long int max_sum = a[0];
         // if there is no negative number
         if(index.size() == 0)
@@ -61,7 +62,7 @@ int main()
         else if(index.size() == a.size())
         {
             long int max_sum = a[0];
-            for(long int i = 1; i < n; i++)
+            for(unsigned int i = 1; i < n; i++)
             {
                 if(max_sum < a[i])
                     max_sum = a[i];
@@ -71,12 +72,12 @@ int main()
         // removing one negative number at a time and then finding the maxSubArraySum
         else
         {
-            for(long int i = 0; i < index.size(); i++)
+            for(unsigned int i = 0; i < index.size(); i++)
             {
                 vector<long int>temp;
                 temp = a;
                 temp.erase(temp.begin() + index[i]);
-                display(temp);
+                //display(temp);
                 long int sum = maxSubArraySum(temp);
                 if(sum > max_sum)
                     max_sum = sum;

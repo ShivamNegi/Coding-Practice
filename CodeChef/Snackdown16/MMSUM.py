@@ -1,5 +1,3 @@
-
-
 def maxSubArraySum(a, size):
     max_so_far = 0
     max_ending_here = 0
@@ -35,7 +33,7 @@ for i in range(t):
     max_sum = a[0]
 
     if len(index) == 0:
-        max_sum = maxSubArraySum(a, n)
+        max_sum = sum(a)
     elif len(a) == len(index):
         max_sum = max(a)
     else:

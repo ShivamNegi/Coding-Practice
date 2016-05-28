@@ -7,7 +7,7 @@ using namespace std;
 long int maxSubArraySum(vector<long int> a)
 {
    long int max_so_far = 0, max_ending_here = 0;
-   for (long int i = 0; i < a.size(); i++)
+   for (unsigned int i = 0; i < a.size(); i++)
    {
        max_ending_here = max_ending_here + a[i];
        if (max_ending_here < 0)
@@ -40,7 +40,8 @@ int main()
         unsigned int n;
         cin>>n;
 
-        vector<long int> a, index;
+        vector<long int> a;
+        vector<unsigned int> index;
         
         // inputting the numbers in a and creating another vector of the
         // indices of negative value numbers
@@ -84,7 +85,6 @@ int main()
             }
             cout<<max_sum<<endl;
         }    
-    }
-    
+    }    
     return 0;
 }

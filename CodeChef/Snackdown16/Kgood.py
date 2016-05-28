@@ -1,29 +1,33 @@
 from collections import Counter
 
-# this is not a good algorithm for this problem will have to retry in a
-# totally different way
+# I don't know which corner case I am missing
 global remove
 global setword
 
-def maddness():
+def madness():
     global remove
     global setword
+
+    base = min(setword.values())
+    count_to_rmbase = 0
+    for no in setword.values():
+            if no == base:
+                count_to_rmbase = count_to_rmbase + 1
+
     for ch in setword:
-        base = min(setword.values())
         count_base = 0
         if(base + n < setword[ch]):
             count_base = setword[ch] - base - n
 
         # print "Count_base", count_base
-        count_to_rmbase = 0
 
-        for no in setword.values():
-            if no == base:
-                count_to_rmbase = count_to_rmbase + 1
-
+        '''print setword.values(), "These are the values for the counter"
+        print "Count base, count to rm base, base, remove"
+        print count_base, count_to_rmbase, base, remove, " This is for ", ch
+        print "The corresponding value for remove is", remove'''
         # removing the base char also if the total remove is lesser than the no
         # of base char
-        if(count_base > count_to_rmbase or count_base > remove):
+        if(count_base > count_to_rmbase or count_to_rmbase < remove):
             # removing base characters
             count = count_to_rmbase
             temp_setword = {}
@@ -52,11 +56,11 @@ for i in xrange(t):
     setword = Counter(inp[0])
     n = int(inp[1])
 
-    base = min(setword.values())
     flag = False
     remove = 0
 
     while not flag:
-        flag = maddness()
+        flag = madness()
+        # print "Rerun ?", flag
         # print setword
         # print flag

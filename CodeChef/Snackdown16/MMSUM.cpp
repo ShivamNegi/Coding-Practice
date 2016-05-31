@@ -21,15 +21,6 @@ long int maxSubArraySum(vector<long int> a)
    return max_so_far;
 }
 
-void display(vector<long int> v)
-{
-    for(int i = 0; i < v.size(); i++)
-    {
-        cout<<v[i]<<" ";
-    }
-    cout<<endl;
-}
- 
 int main()
 {
     int t;

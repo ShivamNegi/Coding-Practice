@@ -1,6 +1,6 @@
 #include<iostream>
-#include<vector>
 #include<string>
+#include<climits>
 
 using namespace std;
 
@@ -26,20 +26,16 @@ int main()
                 same++;
         }
 
-        int val[n];
+        unsigned long int val[n];
 
         for(int i = 0; i < n + 1; i++)
-        {
-            cin>>val[i];
-        }
+        {            cin>>val[i];        }
 
-        int max_val = val[0];
+        unsigned long int max_val = val[0];
 
         for(int i = 0; i <= same; i++)
-        {
-            if(val[i] > max_val)
-                max_val = val[i];
-        }
+        {            max_val = max(max_val, val[i]);        }
+
         cout<<max_val<<endl;
     }
     return 0;

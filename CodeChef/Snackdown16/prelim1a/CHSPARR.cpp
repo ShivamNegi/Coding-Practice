@@ -128,14 +128,39 @@ int main()
                             a = temp;                            
                         }
                     else
-                        a = nextotheriter(a, true);
+                        {
+                            if(2 * a.size() - 3 == pos[pos.size() - j - 2].second - pos[pos.size() - j - 2].first + 1)
+                                a = nextotheriter(a, true);
+                            else if(pos[pos.size() - j - 2].first % 2 == 0)
+                            {
+                                int temper = a[a.size() - 1];
+                                a = nextotheriter(a, true);
+                                a.push_back(temper);
+                            }
+                            else
+                            {
+                                int temper = a[0];
+                                a = nextotheriter(a, true);
+                                a.push_back(temper);
+                                for(int it = a.size() - 1; it > 0; it--)
+                                    a[it] = a[it - 1];
+                                a[0] = temper;
+                            }
+
+
+                        }
                     display(a);
                 }
                 break;
             }
         }
         //display(a);
-        cout<<accumulate(a.begin(), a.end(), 0)<<endl;
+        long int sum = 0;
+        for(int pk = x; pk <= y; pk++)
+        {
+            sum += a[pk - x];
+        }
+        cout<<sum<<endl;
     }
     return 0;
 }

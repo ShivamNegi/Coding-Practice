@@ -11,4 +11,4 @@ for i in range(m):
         else:
             a.append(inp[pos] + inp[pos - 1])
     inp = a
-    print inp, len(inp)
+    # print inp, len(inp)

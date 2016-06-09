@@ -13,19 +13,32 @@ int main()
         int ini, final;
         cin>>ini>>final;
 
-        if(ini > final)
+        int counter = 0;
+
+        while(ini != final)
         {
-            int temp = ini;
-            ini = final;
-            final = temp;
+            while((ini & -ini) != ini)
+            {
+                ini >>= 1;
+                counter++;
+            }
+            
+            
+            while(ini < final)
+            {
+                ini <<= 1;
+                counter++;
+            }
+            
+            while(ini > final)
+            {
+                ini >>= 1;
+                counter++;
+            }
+
         }
 
-        if(log2(ini) - int(log2(ini)) == 0)        
-        {cout<<log2(final) - log2(ini)<<endl;}
-        else
-        {
-            cout<<log2(final) + ceil(log2(ini)) - 1<<endl;
-        }
+        cout<<counter<<endl;        
     }
     return 0;
 }

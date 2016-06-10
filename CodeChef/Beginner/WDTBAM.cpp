@@ -1,6 +1,4 @@
 #include<iostream>
-#include<string>
-#include<climits>
 
 using namespace std;
 
@@ -26,17 +24,27 @@ int main()
                 same++;
         }
 
-        unsigned long int val[n];
+         long long int val[n + 1];
 
-        for(int i = 0; i < n + 1; i++)
-        {            cin>>val[i];        }
+         for(int i = 0; i < n + 1; i++)
+            {            cin>>val[i];        }
 
-        unsigned long int max_val = val[0];
 
-        for(int i = 0; i <= same; i++)
-        {            max_val = max(max_val, val[i]);        }
+        if(same == n)
+            cout<<val[n]<<endl;
+        else
+        {           
 
-        cout<<max_val<<endl;
+             long long int max_val = val[0];
+
+            for(int i = 0; i <= same; i++)
+            {
+                if(max_val < val[i])
+                    max_val = val[i];
+            }
+
+            cout<<max_val<<endl;    
+        }        
     }
     return 0;
 }

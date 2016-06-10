@@ -15,7 +15,7 @@ int main()
         int a[size];
 
         for(int i = 0; i < size; i++)
-            {cin>>a[i];}
+            cin>>a[i];
 
         int subsize;
         cin>>subsize;
@@ -23,28 +23,30 @@ int main()
         int b[subsize];
 
         for(int i = 0; i < subsize; i++)
-            {cin>>b[i];}
+            cin>>b[i];
 
-        bool flag;
+        int count = 0;
 
-        for(int i = 0; i <= size - subsize; i++)
+        for(int i = 0; i < subsize; i++)
         {
-            flag = true;
-            for(int j = 0; j < subsize; j++)
-            {
-                if(a[i + j] != b[j])
+            bool flag = false;
+            for(int j = 0; j < size; j++)
+            {                
+                if(a[j] == b[i])
                 {
-                    flag = false;
+                    count++;
+                    flag = true;
                     break;
                 }
-            }            
-            if(flag)
+            }
+            if(!flag)
                 break;
         }
-        if(flag)
-            {cout<<"Yes\n";}
+
+        if(count == subsize)
+            cout<<"Yes\n";
         else
-            {cout<<"No\n";}
+            cout<<"No\n";
     }
     return 0;
 }

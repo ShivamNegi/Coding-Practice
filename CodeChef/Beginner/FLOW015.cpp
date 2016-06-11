@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -12,16 +13,21 @@ int main()
         int year;
         cin>>year;
 
-        int day_2016 = 5, thatday, extra;
+        int day_2017 = 0, thatday, extra, thatyear = 2017;
 
-        if(year - 2016 > 0)
+        if(year - thatyear > 0)
         {
-            extra = (year - 2016) / 4 + 1;
-            thatday = day_2016 + (year - 2016) + extra;
+            extra = (year - thatyear) / 4;
+            thatday = day_2017 + (year - thatyear) + extra;
         }
-        else 
+        else if(year - thatyear < 0)
         {
-            
+            extra = abs(year - thatyear + 1) / 4 + 1;
+            thatday = day_2017 + 6 * abs(year - thatyear) + 6 * extra;
+        }
+        else
+        {
+            thatday = day_2017;
         }
 
         if(thatday % 7 == 0)

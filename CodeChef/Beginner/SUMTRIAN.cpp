@@ -1,7 +1,18 @@
 #include <iostream>
 #include <stdio.h>
+#include <vector>
 
 using namespace std;
+
+void display(vector<int> a)
+{
+    for(int i = 0; i < a.size(); i++)
+    {
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+
 
 int main()
 {
@@ -13,38 +24,34 @@ int main()
         int n;
         scanf("%d", &n);
 
-        int a[n][n];
+        vector<int> a;
 
-        for(int i = 0; i < n; i++)
+        for(int i = 0; i < n * (n + 1) / 2; i++)
         {
-            for(int j = 0; j < n; j++)
-                a[i][j] = 0;
+            int no;
+            cin>>no;
+            a.push_back(no);
         }
 
-        for(int i = 0; i < n; i++)
-        {
-            for(int j = 0; j <= i; j++)
-            {            
-                scanf("%d", &a[i][j]);                
-            }
-        }
+        display(a);
+        vector<int> inp;
+        // int inp[n * (n + 1) / 2];
 
-        int currpos = 0;
-        long long int sum = a[0][0];
+        inp.push_back(a[0]);
+
         for(int i = 1; i < n; i++)
         {
-            if(a[i][currpos] > a[i][currpos + 1])
+            int pos = i * (i + 1) / 2;
+            for(int j = 0; j < i; j++)
             {
-                sum += a[i][currpos];
-            }
-            else
-            {
-                sum += a[i][currpos + 1];
-                currpos++;
+                inp.push_back(a[pos + j]);
+                j++;
+                inp.push_back(a[pos + j]);
+                if(j != i)
+                    j--;
             }
         }
-
-        printf("%lld\n", sum);
+        display(inp);
     }
 
     return 0;

@@ -5,31 +5,59 @@ using namespace std;
 
 int main()
 {
-    string inp;
+    string inp, dup;
+    int counter = 0;
     cin>>inp;
 
-   int found = inp.find_last_of("C");
-   int counter = 0;
+    int pos = inp.find_first_of('C'), inppos;
+    inppos = pos;
 
-   while(found != -1)
-   {
-    //cout<<inp<<endl;
-    inp.erase(found, 1);
-    if((found = inp.find_first_of("H", found, inp.length())) != -1)
+    while(pos != -1)
     {
-        inp.erase(found, 1);
-        if((found = inp.find_first_of("E", found, inp.length())) != -1)
+        dup = inp.substr(pos + 1, inp.length());
+        inp.erase(inppos, 1);
+
+        pos = dup.find_first_of('H');
+
+        if(pos != -1)
         {
-            inp.erase(found, 1);
-            if((found = inp.find_first_of("F", found, inp.length())) != -1)
+            // cout<<inp<<"\t"<<dup<<"\t"<<pos<<endl;
+            dup = inp.substr(pos + 1, inp.length());
+            inppos += pos;
+            inp.erase(inppos, 1);
+
+            pos = dup.find_first_of('E');
+
+            if(pos != -1)
             {
-                inp.erase(found, 1);
-                counter++;
-            }   
+                // cout<<inp<<"\t"<<dup<<"\t"<<pos<<endl;
+                dup = inp.substr(pos + 1, inp.length());
+                inppos += pos;
+                inp.erase(inppos, 1);
+
+                pos = dup.find_first_of('F');
+
+                if(pos != -1)
+                {
+                    // cout<<inp<<"\t"<<dup<<"\t"<<pos<<endl;
+                    inppos += pos;
+                    inp.erase(inppos, 1);
+                    counter++;                    
+                }
+                else
+                    break;
+            }
+            else
+                break;
         }
+        else
+            break;
+
+        dup = inp;
+        pos = dup.find_first_of('C');
+        // cout<<inp<<"\t"<<dup<<"\t"<<pos<<endl;
+        inppos = 0;
     }
-    found = inp.find_last_of("C");
-   }
 
     cout<<counter<<endl;
     return 0;

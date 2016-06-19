@@ -57,20 +57,7 @@ int main()
                 a.push_back(no);
         }
 
-        int max_size = 0;
-
-        for(int i = 0; i < a.size(); i++)
-        {
-
-            for(int j = 0; j < a.size(); j++)
-            {
-                
-            }
-
-            if(msize > max_size)
-                max_size = msize;
-        }
-
+       
         int val;
 
         if(even > 0)

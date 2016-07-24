@@ -28,25 +28,13 @@ def nocheck(m, k, j, r, c):
     return False
 
 for i in range(int(raw_input())):
-    inp = raw_input().split()
-    r = int(inp[0])
-    c = int(inp[1])
-    m = int(inp[2])
-    k = int(inp[3])
-    j = int(inp[4])
-    # r, c, m, k, j = map(int, raw_input().split())
+    r, c, m, k, j = map(int, raw_input().split())
 
     if nocheck(m, k, j, r, c):
         print "Yes"
-    # elif nocheck(m, j, k, r, c):
-    #     print "Yes"
     elif nocheck(j, m, k, r, c):
         print "Yes"
-    # elif nocheck(j, k, m, r, c):
-    #     print "Yes"
     elif nocheck(k, m, j, r, c):
         print "Yes"
-    # elif nocheck(k, j, m, r, c):
-    #     print "Yes"
     else:
         print "No"

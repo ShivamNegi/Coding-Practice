@@ -5,27 +5,17 @@
     to it as a stoppage point.
 */
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 
-/*void display(vector<int> a)
-{
-    for(int i = 0; i < a.size(); i++)
-        cout<<a[i]<<" ";
-    cout<<endl;
-}
-*/
-
 // this function returns the maximum distance point starting,
 // i.e. the maximum distance is between the point pos and pos + 1
-int max_diff_pos(vector<long long int> a)
+int max_diff_pos(long long int a[], int counter)
 {
     long long int diff = 0; 
     int pos;
 
-    for(int i = 0; i < a.size() - 1; i++)
+    for(int i = 0; i < counter - 1; i++)
     {
         if(a[i + 1] - a[i] > diff)
             {
@@ -35,6 +25,13 @@ int max_diff_pos(vector<long long int> a)
     }
 
     return pos;
+}
+
+void insertingele(long long int halts[], int pos, long long int ele, int counter)
+{
+    for(int i = counter; i > pos; i--)
+        halts[i] = halts[i - 1];
+    halts[pos] = ele;
 }
 
 int main()
@@ -52,15 +49,17 @@ int main()
         for(int i = 0; i < p; i++)
             cin>>a[i];
 
-        vector<long long int> halts;
-        halts.push_back(a[0]);
-        halts.push_back(a[p - 1]);
+        long long int halts[p - 1]; 
+        int counter = 0;
+
+        halts[counter++] = a[0];
+        halts[counter++] = a[p - 1];
 
         // we try to make x - 1 paths in the middle cause the first and
         // the last point have to joint making it one path
         for(int i = 0; i < x - 1; i++)
         {
-            int pos = max_diff_pos(halts);
+            int pos = max_diff_pos(halts, counter);
             long long int mid = (halts[pos + 1] + halts[pos]) / 2;
             int j;
 
@@ -83,18 +82,19 @@ int main()
                 break;
             }
 
-            for(j = 0; j < halts.size(); j++)
+            for(j = 0; j < counter; j++)
             {
                 if(halts[j] > ele)
                     break;
             }
-            halts.insert(halts.begin() + j, ele);
+            
+            insertingele(halts, j, ele, counter);
+            counter++;
         }
 
-        int pos = max_diff_pos(halts);
+        int pos = max_diff_pos(halts, counter);
         long long int max_dist = halts[pos + 1] - halts[pos];        
         cout<<max_dist<<endl;
-        /*display(halts);*/
     }
     return 0;
 }

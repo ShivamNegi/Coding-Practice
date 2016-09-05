@@ -13,17 +13,24 @@ int main()
         cin>>g;
         while(g--)
         {
-            int i, n, q;
+            long long i, n, q;
             cin>>i>>n>>q;
-            long long int heads;
-            if(i == 1)
-                heads = n / 2;
+
+            if(n % 2 == 0)            
+            {
+                cout<<n / 2<<endl;
+            }
             else
-                heads = n / 2 + 1;
-            if(q == 1)
-                cout<<heads<<endl;
-            else
-                cout<<n - heads<<endl;
+            {
+                if(i == q)
+                {
+                    cout<<n / 2<<endl;
+                }
+                else
+                {
+                    cout<<n / 2 + 1<<endl;
+                }
+            }
         }   
     }
     return 0;

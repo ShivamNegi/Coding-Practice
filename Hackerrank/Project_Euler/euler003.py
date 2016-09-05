@@ -1,33 +1,21 @@
 from math import sqrt
 
 def isprime(no):
-    for i in xrange(2, int(sqrt(no)) + 1):
+    for i in range(2, int(sqrt(no)) + 1):
         if no % i == 0:
             return False
     return True
 
-for i in range(int(raw_input())):
-    n = int(raw_input())
-    limit = n
-    max_prime = 1
-    i = 2
-
-    if isprime(n):
-        print n
-        continue
-
-    flag = False
-
-    while i < limit:
-        if n % i == 0:
+def largestprime(no):
+    l_prime = 1
+    for i in range(1, int(sqrt(no)) + 1):
+        if no % i == 0:
             if isprime(i):
-                max_prime = i if i > max_prime else max_prime
-            if isprime(n / i):
-                print n / i
-                flag = True
-                break
-            limit = n / i
-        i = i + 1
+                l_prime = i if l_prime < i else l_prime
+            if isprime(no / i):
+                l_prime = no / i if l_prime < no / i else l_prime
+    return l_prime
 
-    if not flag:
-        print max_prime
+for k in range(int(raw_input())):
+    no = int(raw_input())
+    print largestprime(no)

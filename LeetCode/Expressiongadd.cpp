@@ -42,6 +42,7 @@ int main()
         ops = ops + "+-*";  
     }
 
+    // Sorting is important for the next permutation func
     sort(ops.begin(), ops.end());
 
     string output[2000];

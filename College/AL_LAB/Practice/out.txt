@@ -1,0 +1,36 @@
+Enter the number: 2
+For number: 3.The operation count is: 3
+Enter the number: 3
+For number: 4.The operation count is: 5
+Enter the number: 5
+For number: 5.The operation count is: 9
+Enter the number: 8
+For number: 6.The operation count is: 15
+Enter the number: 13
+For number: 7.The operation count is: 25
+Enter the number: 21
+For number: 8.The operation count is: 41
+Enter the number: 34
+For number: 9.The operation count is: 67
+Enter the number: 55
+For number: 10.The operation count is: 109
+Enter the number: 89
+For number: 11.The operation count is: 177
+Enter the number: 144
+For number: 12.The operation count is: 287
+Enter the number: 233
+For number: 13.The operation count is: 465
+Enter the number: 377
+For number: 14.The operation count is: 753
+Enter the number: 610
+For number: 15.The operation count is: 1219
+Enter the number: 6765
+For number: 20.The operation count is: 13529
+Enter the number: 75025
+For number: 25.The operation count is: 150049
+Enter the number: 832040
+For number: 30.The operation count is: 1664079
+Enter the number: 102334155
+For number: 40.The operation count is: 204668309
+Enter the number: -298632863
+For number: 50.The operation count is: -597265727

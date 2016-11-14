@@ -52,4 +52,3 @@ int main()
     display_vi(a, " ");
     return 0;
 }
-

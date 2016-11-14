@@ -19,6 +19,8 @@ int main()
 			ci++;
 			counter++;
 		}
+
+	 // this is a very important check
 	 if(counter == lenb)
 		{
 			flag = 1;

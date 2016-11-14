@@ -8,6 +8,7 @@ int main()
     int no;
     cin>>no;
 
-    
+    int out = no & (no >> 1);
+    cout<<out<<endl;    
     return 0;
 }

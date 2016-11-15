@@ -20,8 +20,9 @@ void top_down_heapify(int a[], int pos)
  for(int i = pos / 2; i > 0;)
  {
  	int j = i * 2;
- 	if(a[j] < a[j + 1])
- 		j = j + 1;
+ 	if(j < pos)
+ 		if(a[j] < a[j + 1])
+	 		j = j + 1;
  	if(a[j] > a[i])
 	{
 		swap(&a[j], &a[i]);
@@ -32,29 +33,47 @@ void top_down_heapify(int a[], int pos)
  }
 }
 
-void heapify(int a[], int size)
+void top_down_heapify1(int a[], int pos, int size)
+{
+ for(int i = pos / 2; i > 0;)
+ {
+ 	int j = i * 2;
+ 	if(j < pos)
+ 		if(a[j] < a[j + 1])
+	 		j = j + 1;
+ 	if(a[j] > a[i])
+	{
+		swap(&a[j], &a[i]);
+		i /= 2;
+	}
+	else
+		break;
+ }
+}
+
+void heapify(int arr[], int size)
 {
 	for(int i = size / 2; i > 0; i--)
 	{
-		int k = i, val = a[k];
+		int k = i, val = arr[i];
 		bool heap = false;
 
-		for(; 2 * k <= size && !heap; k++)
+		for(; 2 * k <= size && !heap;)
 		{
 			int j = 2 * k;
-			// This means there are two children of the node
-			if(2 * k < size)
-				if(a[j] < a[j + 1])
+			// this means there are two children
+			if(j < size)
+				if(arr[j] < arr[j + 1])
 					j = j + 1;
-			if(a[j] > a[k])
+			if(arr[j] > val)
 			{
-				a[k] = a[j];
+				arr[k] = arr[j];
 				k = j;
 			}
 			else
 				heap = true;
 		}
-		a[k] = val;
+		arr[k] = val;
 	}
 }
 
@@ -75,7 +94,11 @@ void heapsort(int a[], int n)
 	{
 		swap(&a[1], &a[n]);
 		n--;
-		heapify(a, n);
+		for(int i = 1; i <= n; i++)
+		{
+			top_down_heapify(a, i);
+		}
+		// heapify(a, n);
 	}
 }
 

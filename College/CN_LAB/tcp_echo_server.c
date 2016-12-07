@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <unistd.h> // read write close
 #include <stdlib.h>	// for exit system call
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <error.h>	
 #define PORT_NO 1234
 
 void main()
@@ -14,7 +16,7 @@ void main()
 
 	if(sockfd < 0)
 	{
-		printf("Error in creating socket.\n");
+		perror("Failed Socket Creation.");
 		exit(1);
 	}
 
@@ -27,14 +29,16 @@ void main()
 
 	if(ret < 0)
 	{
-		printf("Error in Binding.\n");
+		perror("Error in Binding");
 		exit(1);
 	}
 
-	printf("listening\n");
+	print("listening\n");
 	listen(sockfd, 5);
 
-	newsockfd = accept(sockfd, (struct sockaddr *)&client_address, sizeof(client_address));
+	int len = sizeof(client_address);
+
+	newsockfd = accept(sockfd, (struct sockaddr *)&client_address, &len);
 
 	printf("Accepted\n");
 

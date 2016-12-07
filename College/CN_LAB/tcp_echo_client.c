@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>// for close and write, read
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -6,7 +7,7 @@
 
 #define SERV_TCP_PORT 1234
 
-int main(int argc,char*argv[])
+int main(int argc, char*argv[])
 {
  int sockfd;
  struct sockaddr_in serv_addr;

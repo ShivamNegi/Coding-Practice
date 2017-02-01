@@ -10,6 +10,7 @@ void display(int a[], int size)
 	cout<<endl;
 }
 
+// Iterative
 void subset_sum(int a[], int d, int size)
 {
 	int lim = 1<<size;
@@ -23,6 +24,7 @@ void subset_sum(int a[], int d, int size)
 			{
 				int pos = log(j) / log(2);
 				sum += a[pos];
+				// storing all the elements along with the calculating the sum
 				curr[counter++] = a[pos];
 			}
 			j = j<<1;

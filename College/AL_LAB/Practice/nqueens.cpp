@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int a[SIZE][SIZE];
+int a[SIZE][SIZE], counter = 0;
 
 void init(int n)
 {
@@ -60,18 +60,23 @@ void display(int n)
 	{
 		for(int j = 0; j < n; j++)
 		{
-			cout<<a[i][j]<<"\t";
+			cout<<a[i][j]<<"  ";
 		}
 		cout<<endl;
 	}
+	cout<<"\n\n";
 }
 
+// placed variable defines the columns on which a queen has been sucessfully placed.
+// n 	is the total number of queens to be placed we can make it as a global variable to
+// decrease the memory used in stack.
 void nqueens(int n, int placed)
 {
 	if(placed == n)
 	{
-		display(n);
-		cout<<endl;
+		// display(n);		
+		// cout<<endl;
+		counter++;
 	}
 	for(int i = 0; i < n; i++)
 	{
@@ -94,6 +99,8 @@ int main()
 
 	init(n);
 	nqueens(n, 0);
+
+	cout<<"The number of possible board solutions are: "<<counter<<endl;
 
 	return 0;
 }

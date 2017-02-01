@@ -33,24 +33,6 @@ void top_down_heapify(int a[], int pos)
  }
 }
 
-void top_down_heapify1(int a[], int pos, int size)
-{
- for(int i = pos / 2; i > 0;)
- {
- 	int j = i * 2;
- 	if(j < pos)
- 		if(a[j] < a[j + 1])
-	 		j = j + 1;
- 	if(a[j] > a[i])
-	{
-		swap(&a[j], &a[i]);
-		i /= 2;
-	}
-	else
-		break;
- }
-}
-
 void heapify(int arr[], int size)
 {
 	for(int i = size / 2; i > 0; i--)

@@ -1,9 +1,0 @@
-ls command
-  ls
-  ls -a
-    to show hidden files also.
-  ls -l
-    print the author and the right permissions of the file
-
-owner, group, others
-r = 4, w = 2, x = 1.

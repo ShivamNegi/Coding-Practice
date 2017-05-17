@@ -1,0 +1,8 @@
+pass
+6
+p $
+p P
+a A
+s /
+s S
+s &

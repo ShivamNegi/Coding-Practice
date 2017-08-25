@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+  int t;
+  cin>>t;
+
+  while(t--)
+    {
+      int n, d;
+      cin>>n>>d;
+      
+      vector< pair<int, pair<int, int> > > inp;
+      for(int i = 0; i < n; i++)
+	{
+	  int di, ti, si;
+	  cin>>di>>ti>>si;
+
+	  inp.push_back(make_pair(di, make_pair(si, ti)));
+	}
+
+      sort(inp.begin(), inp.end());
+
+      int tot_sadness = 0;
+      int j = 0;
+      priority_queue< pair<int, int> > out;
+      for(int i = 0; i < d; i++)
+	{
+	  for(j; j < n; j++)
+	    {
+	      if(inp[j].first == i)
+		out.push(inp[j].second);
+	      else
+	        break;	
+	    }
+	  
+	  
+	  
+	}
+    }
+}

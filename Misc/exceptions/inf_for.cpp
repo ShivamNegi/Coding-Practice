@@ -12,6 +12,6 @@ int main()
         cout<<t<<"\t";
     }
 
-    cout<<inf<<endl;
+    // cout<<inf<<endl;
     return 0;
 }

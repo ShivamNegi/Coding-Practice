@@ -26,6 +26,29 @@ inline void display_vi(vi a,string s)
 
 int main()
 {
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        int k, a, b;
+        cin>>k>>a>>b;
+
+        int clock, counter;
+
+        if(b < a)
+            swap(a, b);
+        clock = b - a - 1;
+        counter = k - b + a - 1;
+
+        if(counter == clock)
+        {
+            cout<<"0\n";
+        }
+        else
+        {   
+            cout<<min(counter, clock)<<"\n";
+        }
+    }
     return 0;
 }
-

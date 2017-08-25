@@ -26,6 +26,21 @@ inline void display_vi(vi a,string s)
 
 int main()
 {
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        float dist, vstair, vele;
+        cin>>dist>>vstair>>vele;
+
+        vstair = vstair * sqrt(2);
+
+        if(vstair > vele)
+            cout<<"Stairs\n";
+        else
+            cout<<"Elevator\n";
+    }
     return 0;
 }
 

@@ -8,7 +8,7 @@ void swap(int* a, int* b)
     *b = t;
 }
  
-int partition (int arr[], int low, int high)
+int partition(int arr[], int low, int high)
 {
     int pivot = arr[high];   
     int i = (low - 1), j;
@@ -42,6 +42,7 @@ void printArray(int arr[], int size)
     int i;
     for (i=0; i < size; i++)
         printf("%d ", arr[i]);
+
     printf("\n");
 }
 

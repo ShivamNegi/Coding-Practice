@@ -9,6 +9,14 @@ struct node
     node * next;
 };
 
+node * createnode(int data)
+{
+    node * temp = new node;
+    temp->data = data;
+    temp->next = NULL;
+    return temp;
+}
+
 node * insertnode(node * head, int data)
 {
     if(head)
@@ -18,18 +26,14 @@ node * insertnode(node * head, int data)
         while(trav->next)
             trav = trav->next;
 
-        node * temp = new node;
-        temp->data = data;
-        temp->next = NULL;
+        node * temp = createnode(data);
         trav->next = temp;
 
         return head;
     }
     else
     {
-        node * temp = new node;
-        temp->data = data;
-        temp->next = NULL;
+        node * temp = createnode(data);
         return temp;
     }
 }

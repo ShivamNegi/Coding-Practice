@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int count_ones(bitset<int> arr)
+{
+    int val = 0, max_val = 0;
+    for(int i = 0; i < arr.size(); i++)
+    {
+        if(arr[i] == 1)
+            val++;
+        else
+        {
+            if(val > max_val)
+                max_val = val;
+            val = 0;
+        }
+    }
+    return max_val;
+}
+
+int longest_seq(bitset<int> arr, vector<int> zero_pos, vector<int> one_pos)
+{
+    
+}
+
+int main()
+{
+    int len;
+    cin>>len;
+
+    bitset<len> arr;
+    vector<int> zero_pos, one_pos;
+    for(int i = 0; i < len; i++)
+    {
+        int no;
+        cin>>no;
+        arr[i] = no;
+        if(no == 0)
+            zero_pos.push_back(i);
+        else
+            one_pos.push_back(i);
+    }
+
+    cout<<longest_seq(arr, zero_pos, one_pos)<<endl;
+
+    return 0;
+}

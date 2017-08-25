@@ -128,7 +128,7 @@ int main()
     display(head);
     head = reverse(head);
     display(head);
-    head = reverse_kth(head, 2);
+    //head = reverse_kth(head, 2);
     display(head);
     return 0;
 }

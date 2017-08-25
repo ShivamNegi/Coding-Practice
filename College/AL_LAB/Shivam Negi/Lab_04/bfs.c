@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int a[20][20],visited[30],q[30],i,j,n,f=0,r=-1;
 

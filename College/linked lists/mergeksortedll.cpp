@@ -8,6 +8,15 @@ struct node
     node * next;
 };
 
+node * createnode(int data)
+{
+    node * temp = new node;
+    temp->data = data;
+    temp->next = NULL;
+    return temp;
+}
+
+
 node * insertnode(node * head, int data)
 {
     if(head)
@@ -17,21 +26,11 @@ node * insertnode(node * head, int data)
         while(trav->next)
             trav = trav->next;
 
-        node * temp = new node;
-        temp->data = data;
+        node * temp = createnode(data);
         trav->next = temp;
-        temp->next = NULL;
-
         return head;
     }
-    else
-    {
-        node * temp = new node;
-        temp->data = data;
-        temp->next = NULL;
-
-        return temp;
-    }
+    return createnode(data);
 }
 
 void display(node * head)

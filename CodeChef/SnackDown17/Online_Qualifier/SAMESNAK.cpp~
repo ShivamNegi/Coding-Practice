@@ -6,12 +6,10 @@ using namespace std;
 #define ll long long
 #define for_set(c, it) \
  for(typeof(c.begin()) it = c.begin(); it != c.end(); it++)
-#define rep(a, b) for(int i = a; i < b; i++)
 
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef pair<int, int> pi;
-typedef vector< pair<int, int> > vpi;
 
 inline void display_vi(vi a,string s)
 {
